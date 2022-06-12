@@ -1,0 +1,19 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: gatewayserver
+  cloud:
+    gateway:
+      routes:
+        - id: users_route
+          uri: http://user:8080/users
+          predicates:
+            - Path=/users/**
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
