@@ -11,6 +11,11 @@ spring:
           uri: http://user:8080/users
           predicates:
             - Path=/users/**
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://my-release-keycloak.default.svc.cluster.local/realms/master/protocol/openid-connect/certs
 
 management:
   endpoints:
